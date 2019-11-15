@@ -18,8 +18,18 @@
     </div>
   </header>
 {{ else }}
-  <header>
+  {{ if .Params.featured_cover_css_class }}
+    {{ .Scratch.Set "featured_css_class" .Params.featured_cover_css_class }}
+  {{ else }}
+    {{ .Scratch.Set "featured_css_class" .Site.Params.featured_cover_css_class }}
+  {{ end }}
+
+  <header class="{{ .Scratch.Get "featured_css_class" }}">
+    {{ if .Scratch.Get "featured_css_class" }}
+    <div class="bg-black-30">
+    {{ else }}
     <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
+    {{ end }}
       {{ partial "site-navigation.html" . }}
     </div>
   </header>

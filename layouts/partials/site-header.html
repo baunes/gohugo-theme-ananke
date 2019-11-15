@@ -18,9 +18,14 @@
     </div>
   </header>
 {{ else }}
-  <header class="{{ .Params.featured_cover_css_class }}">
-    {{ $featured_css_class := .Param "featured_cover_css_class"}}
-    {{ if $featured_css_class }}
+  {{ if .Params.featured_cover_css_class }}
+    {{ .Scratch.Set "featured_css_class" .Params.featured_cover_css_class }}
+  {{ else }}
+    {{ .Scratch.Set "featured_css_class" .Site.Params.featured_cover_css_class }}
+  {{ end }}
+
+  <header class="{{ .Scratch.Get "featured_css_class" }}">
+    {{ if .Scratch.Get "featured_css_class"}}
     <div class="pb3-m pb6-l bg-black-30">
     {{ else }}
     <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
