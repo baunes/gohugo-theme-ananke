@@ -26,9 +26,9 @@
 
   <header class="{{ .Scratch.Get "featured_css_class" }}">
     {{ if .Scratch.Get "featured_css_class"}}
-    <div class="pb3-m pb5 bg-black-30">
+    <div class="pb3 bg-black-30">
     {{ else }}
-    <div class="pb3-m pb5 {{ .Site.Params.background_color_class | default "bg-black" }}">
+    <div class="pb3 {{ .Site.Params.background_color_class | default "bg-black" }}">
     {{ end }}
       {{ partial "site-navigation.html" . }}
       <div class="tc-l ph3 ph4-ns">

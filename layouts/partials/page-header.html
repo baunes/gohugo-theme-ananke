@@ -3,7 +3,7 @@
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
   {{ $featured_image := (trim $featured_image "/") | relURL }}
   <header class="cover bg-top" style="background-image: url('{{ $featured_image }}'); background-position: center;">
-    <div class="pb3-m pb5 bg-black-60">
+    <div class="pb3 bg-black-60">
       {{ partial "site-navigation.html" . }}
       <div class="tc-l ph3 ph4-ns">
         {{ if not .Params.omit_header_text }}
